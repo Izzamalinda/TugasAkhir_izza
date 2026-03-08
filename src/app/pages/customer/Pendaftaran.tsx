@@ -666,7 +666,7 @@ export default function Pendaftaran() {
 
       {/* Payment Dialog */}
       <Dialog open={showPaymentDialog} onOpenChange={setShowPaymentDialog}>
-        <DialogContent className="sm:max-w-md bg-gradient-to-br from-black via-gray-900 to-black border-[#f4c430]/30">
+        <DialogContent className="max-w-[calc(100%-2rem)] sm:max-w-md max-h-[90vh] overflow-y-auto bg-gradient-to-br from-black via-gray-900 to-black border-[#f4c430]/30">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-white flex items-center gap-2">
               <CreditCard className="w-6 h-6 text-[#f4c430]" />
@@ -737,7 +737,7 @@ export default function Pendaftaran() {
               <Button
                 variant="outline"
                 onClick={() => setShowPaymentDialog(false)}
-                className="flex-1 border-gray-600 text-gray-300 hover:bg-gray-800"
+                className="flex-1 border-red-600 bg-black text-red-300 hover:bg-gray-900"
                 disabled={paymentProcessing}
               >
                 Batal

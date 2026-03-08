@@ -142,7 +142,7 @@ export default function Register() {
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center py-12 px-4 overflow-hidden">
-      <div className="w-full max-w-6xl grid grid-cols-1 gap-8 items-center overflow-hidden">
+      <div className="w-full max-w-xl grid grid-cols-1 gap-8 items-center overflow-hidden">
 
         {/* Right Side - Register Form */}
         <motion.div
@@ -155,10 +155,6 @@ export default function Register() {
               <div className="w-20 h-20 bg-gradient-to-br from-[#f4c430] to-[#d4a028] rounded-3xl flex items-center justify-center mx-auto mb-2 shadow-lg shadow-[#f4c430]/50">
                 <UserPlus className="w-10 h-10 text-black" />
               </div>
-              <Badge className="mb-2 bg-[#f4c430]/20 text-[#f4c430] border-[#f4c430]/30">
-                <Sparkles className="w-3 h-3 mr-1" />
-                Gratis Selamanya
-              </Badge>
               <CardTitle className="text-4xl text-white">Daftar</CardTitle>
               <CardDescription className="text-base text-gray-400">
                 Buat akun baru untuk mulai mendaftar umrah
@@ -338,15 +334,7 @@ export default function Register() {
                       htmlFor="terms"
                       className="text-sm text-gray-300 cursor-pointer leading-relaxed"
                     >
-                      Saya menyetujui{" "}
-                      <a href="#" className="text-[#f4c430] hover:underline">
-                        Syarat & Ketentuan
-                      </a>{" "}
-                      serta{" "}
-                      <a href="#" className="text-[#f4c430] hover:underline">
-                        Kebijakan Privasi
-                      </a>{" "}
-                      Ardaya Travel
+                      Saya menyetujui Syarat & Ketentuan serta Kebijakan Privasi Ardaya Travel
                     </Label>
                   </div>
                   {errors.terms && (

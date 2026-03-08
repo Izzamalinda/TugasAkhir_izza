@@ -103,10 +103,6 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge className="mb-4 bg-[#f4c430]/20 text-[#f4c430] border-[#f4c430]/30 backdrop-blur-sm">
-                <Sparkles className="w-3 h-3 mr-1" />
-                2 Tahun Melayani dengan Amanah
-              </Badge>
               <h1 className="text-4xl lg:text-7xl font-bold mb-6 leading-tight">
                 Wujudkan Impian <br />
                 <span className="bg-gradient-to-r from-[#f4c430] via-[#ffd700] to-[#f4c430] bg-clip-text text-transparent">

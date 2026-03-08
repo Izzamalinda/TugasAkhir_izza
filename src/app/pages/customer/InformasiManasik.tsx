@@ -17,8 +17,7 @@ import {
   Hotel,
   Utensils,
   FileText,
-  Download,
-  Video
+  Download
 } from "lucide-react";
 
 export default function InformasiManasik() {
@@ -59,34 +58,6 @@ export default function InformasiManasik() {
     email: "ahmad.fauzi@ardayatravel.com",
     pengalaman: "15 tahun membimbing jamaah umrah",
   };
-
-  const materiManasik = [
-    {
-      judul: "Niat dan Tata Cara Ihram",
-      durasi: "30 menit",
-      deskripsi: "Pelajari cara berniat ihram dan hal-hal yang dilarang saat berihram",
-    },
-    {
-      judul: "Tawaf dan Sunnah-sunnahnya",
-      durasi: "45 menit",
-      deskripsi: "Tata cara melakukan tawaf 7 putaran mengelilingi Ka'bah",
-    },
-    {
-      judul: "Sa'i antara Safa dan Marwah",
-      durasi: "30 menit",
-      deskripsi: "Cara melakukan sa'i 7 kali bolak-balik antara bukit Safa dan Marwah",
-    },
-    {
-      judul: "Tahallul dan Tahallul Akhir",
-      durasi: "20 menit",
-      deskripsi: "Tata cara tahallul (potong/cukur rambut) dan mengakhiri ibadah umrah",
-    },
-    {
-      judul: "Ziarah dan Adab di Tanah Suci",
-      durasi: "40 menit",
-      deskripsi: "Tempat-tempat ziarah dan adab saat berada di Makkah dan Madinah",
-    },
-  ];
 
   const jadwalManasik = [
     { tanggal: "1 Maret 2026", waktu: "09:00 - 12:00", materi: "Sesi 1: Persiapan & Niat Umrah", lokasi: "Kantor Ardaya Travel" },
@@ -291,43 +262,6 @@ export default function InformasiManasik() {
 
           {/* Tab Manasik */}
           <TabsContent value="manasik" className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <BookOpen className="w-5 h-5" />
-                  Materi Manasik Haji & Umrah
-                </CardTitle>
-                <CardDescription>
-                  Pelajari tata cara ibadah umrah sebelum keberangkatan
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {materiManasik.map((materi, index) => (
-                  <div key={index} className="p-4 border rounded-lg hover:border-[#f4c430] transition-colors">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          <Badge className="bg-[#f4c430]/20 text-[#f4c430] border-[#f4c430]/30">
-                            Sesi {index + 1}
-                          </Badge>
-                          <span className="text-sm text-gray-500 flex items-center gap-1">
-                            <Clock className="w-3 h-3" />
-                            {materi.durasi}
-                          </span>
-                        </div>
-                        <h3 className="font-semibold text-lg mb-1">{materi.judul}</h3>
-                        <p className="text-sm text-gray-600">{materi.deskripsi}</p>
-                      </div>
-                      <Button variant="outline" size="sm">
-                        <Video className="w-4 h-4 mr-2" />
-                        Tonton
-                      </Button>
-                    </div>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">

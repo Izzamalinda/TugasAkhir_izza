@@ -48,7 +48,7 @@ export default function Login() {
 
   return (
     <div className="min-h-[calc(100vh-4rem)] bg-black flex items-center justify-center py-12 px-4">
-      <div className="w-full max-w-6xl grid grid-cols-1 gap-8 items-center">
+      <div className="w-full max-w-xl grid grid-cols-1 gap-8 items-center">
 
         <motion.div
           initial={{ opacity: 0, x: 20 }}
