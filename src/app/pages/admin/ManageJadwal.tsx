@@ -136,15 +136,15 @@ export default function ManageJadwal() {
   }, {} as Record<string, Jadwal[]>);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-black text-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl font-bold text-white mb-2">
               Kelola Jadwal Perjalanan
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-200">
               Atur itinerary dan jadwal keberangkatan untuk setiap paket
             </p>
           </div>
@@ -328,19 +328,19 @@ export default function ManageJadwal() {
                             {index + 1}
                           </div>
                           {index < jadwalItems.length - 1 && (
-                            <div className="w-0.5 h-full bg-gray-200 my-2" />
+                            <div className="w-0.5 h-full bg-[#f4c430]/30 my-2" />
                           )}
                         </div>
 
                         {/* Content */}
                         <div className="flex-1 pb-6">
-                          <div className="bg-gray-50 border rounded-lg p-4">
+                          <div className="bg-black/30 border border-[#f4c430]/20 rounded-lg p-4">
                             <div className="flex items-start justify-between mb-2">
                               <div>
                                 <h4 className="font-semibold text-lg mb-1">
                                   {jadwal.aktivitas}
                                 </h4>
-                                <div className="flex flex-wrap gap-3 text-sm text-gray-600">
+                                <div className="flex flex-wrap gap-3 text-sm text-gray-200">
                                   <div className="flex items-center gap-1">
                                     <Calendar className="w-4 h-4" />
                                     {new Date(jadwal.tanggal).toLocaleDateString(
@@ -371,7 +371,7 @@ export default function ManageJadwal() {
                               </Button>
                             </div>
                             {jadwal.keterangan && (
-                              <p className="text-sm text-gray-600 mt-2">
+                              <p className="text-sm text-gray-200 mt-2">
                                 {jadwal.keterangan}
                               </p>
                             )}
@@ -387,8 +387,8 @@ export default function ManageJadwal() {
           {Object.keys(jadwalByPaket).length === 0 && (
             <Card>
               <CardContent className="py-12 text-center">
-                <Calendar className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500">
+                <Calendar className="w-12 h-12 text-[#f4c430] mx-auto mb-4" />
+                <p className="text-gray-200">
                   Belum ada jadwal untuk paket yang dipilih
                 </p>
               </CardContent>

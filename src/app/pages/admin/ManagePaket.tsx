@@ -93,15 +93,15 @@ export default function ManagePaket() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-black text-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl font-bold text-white mb-2">
               Kelola Paket Umrah
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-200">
               Tambah, edit, dan hapus paket umrah yang tersedia
             </p>
           </div>
@@ -264,62 +264,54 @@ export default function ManagePaket() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
-                Total Paket
-              </CardTitle>
-              <Plus className="w-4 h-4 text-emerald-600" />
+              <CardTitle className="text-sm font-medium text-white">Total Paket</CardTitle>
+              <Plus className="w-4 h-4 text-[#f4c430]" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{paketList.length}</div>
-              <p className="text-xs text-gray-500 mt-1">Paket aktif</p>
+              <div className="text-2xl font-bold text-white">{paketList.length}</div>
+              <p className="text-xs text-gray-200 mt-1">Paket aktif</p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
-                Total Kuota
-              </CardTitle>
-              <Users className="w-4 h-4 text-blue-600" />
+              <CardTitle className="text-sm font-medium text-white">Total Kuota</CardTitle>
+              <Users className="w-4 h-4 text-[#f4c430]" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">
+              <div className="text-2xl font-bold text-white">
                 {paketList.reduce((acc, curr) => acc + curr.kuota, 0)}
               </div>
-              <p className="text-xs text-gray-500 mt-1">Jamaah</p>
+              <p className="text-xs text-gray-200 mt-1">Jamaah</p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
-                Seat Tersedia
-              </CardTitle>
-              <Users className="w-4 h-4 text-green-600" />
+              <CardTitle className="text-sm font-medium text-white">Seat Tersedia</CardTitle>
+              <Users className="w-4 h-4 text-[#f4c430]" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">
+              <div className="text-2xl font-bold text-white">
                 {paketList.reduce((acc, curr) => acc + curr.tersedia, 0)}
               </div>
-              <p className="text-xs text-gray-500 mt-1">Tersedia</p>
+              <p className="text-xs text-gray-200 mt-1">Tersedia</p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
-                Seat Terisi
-              </CardTitle>
-              <Users className="w-4 h-4 text-amber-600" />
+              <CardTitle className="text-sm font-medium text-white">Seat Terisi</CardTitle>
+              <Users className="w-4 h-4 text-[#f4c430]" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">
+              <div className="text-2xl font-bold text-white">
                 {paketList.reduce(
                   (acc, curr) => acc + (curr.kuota - curr.tersedia),
                   0
                 )}
               </div>
-              <p className="text-xs text-gray-500 mt-1">Terdaftar</p>
+              <p className="text-xs text-gray-200 mt-1">Terdaftar</p>
             </CardContent>
           </Card>
         </div>
@@ -357,7 +349,11 @@ export default function ManagePaket() {
                     <TableCell>{paket.kuota}</TableCell>
                     <TableCell>
                       <Badge
-                        variant={paket.tersedia > 10 ? "default" : "destructive"}
+                        className={
+                          paket.tersedia > 10
+                            ? "bg-[#f4c430] text-black"
+                            : "bg-red-600 text-white"
+                        }
                       >
                         {paket.tersedia}
                       </Badge>

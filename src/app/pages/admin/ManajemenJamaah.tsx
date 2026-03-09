@@ -256,23 +256,23 @@ export default function ManajemenJamaah() {
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="min-h-screen bg-black text-white p-6 space-y-6">
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold text-white mb-2">Manajemen Jamaah</h1>
-        <p className="text-gray-400">Kelola data jamaah, pembatalan, dan penggantian</p>
+        <p className="text-gray-200">Kelola data jamaah, pembatalan, dan penggantian</p>
       </div>
 
       {/* Search Bar */}
       <Card className="bg-gradient-to-br from-gray-900 via-black to-gray-900 border-[#f4c430]/20">
         <CardContent className="p-6">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-200 w-5 h-5" />
             <Input
               placeholder="Cari jamaah (nama, NIK, paspor, paket)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 bg-black/50 border-[#f4c430]/20 text-white placeholder:text-gray-500"
+              className="pl-10 bg-black/50 border-[#f4c430]/20 text-white placeholder:text-gray-400"
             />
           </div>
         </CardContent>
@@ -280,27 +280,27 @@ export default function ManajemenJamaah() {
 
       {/* Statistics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="bg-gradient-to-br from-green-900/20 via-black to-gray-900 border-green-600/20">
+        <Card className="bg-gradient-to-br from-black/50 via-black to-black/80 border-[#f4c430]/20">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm mb-1">Total Jamaah Aktif</p>
+                <p className="text-gray-200 text-sm mb-1">Total Jamaah Aktif</p>
                 <p className="text-3xl font-bold text-white">
                   {jamaahList.filter((j) => j.status === "Aktif").length}
                 </p>
               </div>
-              <div className="w-12 h-12 bg-green-600/20 rounded-xl flex items-center justify-center">
-                <Check className="w-6 h-6 text-green-500" />
+              <div className="w-12 h-12 bg-[#f4c430]/20 rounded-xl flex items-center justify-center">
+                <Check className="w-6 h-6 text-[#f4c430]" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="bg-gradient-to-br from-red-900/20 via-black to-gray-900 border-red-600/20">
+        <Card className="bg-gradient-to-br from-black/50 via-black to-black/80 border-[#f4c430]/20">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm mb-1">Dibatalkan</p>
+                <p className="text-gray-200 text-sm mb-1">Dibatalkan</p>
                 <p className="text-3xl font-bold text-white">
                   {jamaahList.filter((j) => j.status === "Dibatalkan").length}
                 </p>
@@ -312,17 +312,17 @@ export default function ManajemenJamaah() {
           </CardContent>
         </Card>
 
-        <Card className="bg-gradient-to-br from-blue-900/20 via-black to-gray-900 border-blue-600/20">
+        <Card className="bg-gradient-to-br from-black/50 via-black to-black/80 border-[#f4c430]/20">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm mb-1">Diganti</p>
+                <p className="text-gray-200 text-sm mb-1">Diganti</p>
                 <p className="text-3xl font-bold text-white">
                   {jamaahList.filter((j) => j.status === "Diganti").length}
                 </p>
               </div>
-              <div className="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center">
-                <UserPlus className="w-6 h-6 text-blue-500" />
+              <div className="w-12 h-12 bg-[#f4c430]/20 rounded-xl flex items-center justify-center">
+                <UserPlus className="w-6 h-6 text-[#f4c430]" />
               </div>
             </div>
           </CardContent>
@@ -349,32 +349,32 @@ export default function ManajemenJamaah() {
                           <h3 className="text-xl font-bold text-white">{jamaah.nama}</h3>
                           {getStatusBadge(jamaah.status)}
                         </div>
-                        <p className="text-gray-400 text-sm">ID: {jamaah.id}</p>
+                        <p className="text-gray-200 text-sm">ID: {jamaah.id}</p>
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="flex items-center gap-2 text-gray-400">
+                      <div className="flex items-center gap-2 text-gray-200">
                         <CreditCard className="w-4 h-4 text-[#f4c430]" />
                         <span className="text-sm">NIK: {jamaah.nik}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-400">
+                      <div className="flex items-center gap-2 text-gray-200">
                         <CreditCard className="w-4 h-4 text-[#f4c430]" />
                         <span className="text-sm">Paspor: {jamaah.noPaspor}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-400">
+                      <div className="flex items-center gap-2 text-gray-200">
                         <Phone className="w-4 h-4 text-[#f4c430]" />
                         <span className="text-sm">{jamaah.noTelepon}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-400">
+                      <div className="flex items-center gap-2 text-gray-200">
                         <Mail className="w-4 h-4 text-[#f4c430]" />
                         <span className="text-sm">{jamaah.email}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-400">
+                      <div className="flex items-center gap-2 text-gray-200">
                         <MapPin className="w-4 h-4 text-[#f4c430]" />
                         <span className="text-sm">{jamaah.paket}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-gray-400">
+                      <div className="flex items-center gap-2 text-gray-200">
                         <Calendar className="w-4 h-4 text-[#f4c430]" />
                         <span className="text-sm">{jamaah.tanggalKeberangkatan}</span>
                       </div>
@@ -389,10 +389,10 @@ export default function ManajemenJamaah() {
                             <p className="text-red-400 font-semibold mb-1">
                               {jamaah.status === "Dibatalkan" ? "Dibatalkan" : "Diganti"}
                             </p>
-                            <p className="text-gray-400 text-sm mb-1">
+                            <p className="text-gray-200 text-sm mb-1">
                               <strong>Alasan:</strong> {jamaah.alasanPembatalan}
                             </p>
-                            <p className="text-gray-500 text-xs">
+                            <p className="text-gray-200 text-xs">
                               Tanggal: {jamaah.tanggalPembatalan}
                             </p>
                           </div>
@@ -400,39 +400,39 @@ export default function ManajemenJamaah() {
 
                         {/* Info Jamaah Pengganti */}
                         {jamaah.status === "Diganti" && jamaah.jamaahPengganti && (
-                          <div className="mt-4 pt-4 border-t border-gray-700">
-                            <p className="text-blue-400 font-semibold mb-3 flex items-center gap-2">
+                          <div className="mt-4 pt-4 border-t border-[#f4c430]/40">
+                            <p className="text-[#f4c430] font-semibold mb-3 flex items-center gap-2">
                               <UserPlus className="w-4 h-4" />
                               Data Jamaah Pengganti
                             </p>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
                               <div>
-                                <span className="text-gray-500">Nama:</span>
-                                <span className="text-gray-300 ml-2">
+                                <span className="text-gray-200">Nama:</span>
+                                <span className="text-gray-200 ml-2">
                                   {jamaah.jamaahPengganti.nama}
                                 </span>
                               </div>
                               <div>
-                                <span className="text-gray-500">NIK:</span>
-                                <span className="text-gray-300 ml-2">
+                                <span className="text-gray-200">NIK:</span>
+                                <span className="text-gray-200 ml-2">
                                   {jamaah.jamaahPengganti.nik}
                                 </span>
                               </div>
                               <div>
-                                <span className="text-gray-500">No. Paspor:</span>
-                                <span className="text-gray-300 ml-2">
+                                <span className="text-gray-200">No. Paspor:</span>
+                                <span className="text-gray-200 ml-2">
                                   {jamaah.jamaahPengganti.nomorPaspor}
                                 </span>
                               </div>
                               <div>
-                                <span className="text-gray-500">No. Telepon:</span>
-                                <span className="text-gray-300 ml-2">
+                                <span className="text-gray-200">No. Telepon:</span>
+                                <span className="text-gray-200 ml-2">
                                   {jamaah.jamaahPengganti.noTelepon}
                                 </span>
                               </div>
                               <div>
-                                <span className="text-gray-500">Hubungan:</span>
-                                <span className="text-gray-300 ml-2">
+                                <span className="text-gray-200">Hubungan:</span>
+                                <span className="text-gray-200 ml-2">
                                   {jamaah.jamaahPengganti.hubunganKeluarga}
                                 </span>
                               </div>
@@ -485,7 +485,7 @@ export default function ManajemenJamaah() {
               <UserX className="w-5 h-5 text-red-500" />
               Batalkan Jamaah
             </DialogTitle>
-            <DialogDescription className="text-gray-400">
+            <DialogDescription className="text-gray-200">
               Jamaah yang dibatalkan tidak dapat dikembalikan ke status aktif.
             </DialogDescription>
           </DialogHeader>
@@ -493,8 +493,8 @@ export default function ManajemenJamaah() {
           <div className="space-y-4 py-4">
             <div className="bg-red-900/10 border border-red-600/20 rounded-lg p-4">
               <p className="text-white font-semibold mb-2">{selectedJamaah?.nama}</p>
-              <p className="text-gray-400 text-sm">Paket: {selectedJamaah?.paket}</p>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-200 text-sm">Paket: {selectedJamaah?.paket}</p>
+              <p className="text-gray-200 text-sm">
                 Keberangkatan: {selectedJamaah?.tanggalKeberangkatan}
               </p>
             </div>
@@ -519,7 +519,7 @@ export default function ManajemenJamaah() {
                 setAlasanPembatalan("");
                 setSelectedJamaah(null);
               }}
-              className="border-gray-600 text-gray-300 hover:bg-gray-800"
+              className="border-[#f4c430]/50 text-[#f4c430] hover:bg-[#f4c430]/10"
             >
               Batal
             </Button>
@@ -543,7 +543,7 @@ export default function ManajemenJamaah() {
               <UserPlus className="w-5 h-5 text-[#f4c430]" />
               Ganti Jamaah
             </DialogTitle>
-            <DialogDescription className="text-gray-400">
+            <DialogDescription className="text-gray-200">
               Masukkan data jamaah pengganti untuk menggantikan jamaah yang dibatalkan.
             </DialogDescription>
           </DialogHeader>
@@ -556,8 +556,8 @@ export default function ManajemenJamaah() {
                 Jamaah Dibatalkan
               </p>
               <p className="text-white font-semibold">{selectedJamaah?.nama}</p>
-              <p className="text-gray-400 text-sm">Paket: {selectedJamaah?.paket}</p>
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-200 text-sm">Paket: {selectedJamaah?.paket}</p>
+              <p className="text-gray-200 text-sm">
                 Keberangkatan: {selectedJamaah?.tanggalKeberangkatan}
               </p>
             </div>
@@ -776,7 +776,7 @@ export default function ManajemenJamaah() {
                 });
                 setSelectedJamaah(null);
               }}
-              className="border-gray-600 text-gray-300 hover:bg-gray-800"
+              className="border-[#f4c430]/50 text-[#f4c430] hover:bg-[#f4c430]/10"
             >
               Batal
             </Button>

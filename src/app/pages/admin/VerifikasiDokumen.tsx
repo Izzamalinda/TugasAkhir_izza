@@ -203,14 +203,14 @@ export default function VerifikasiDokumen() {
     switch (status) {
       case "diverifikasi":
         return (
-          <Badge className="bg-green-600 hover:bg-green-700">
+          <Badge className="bg-[#f4c430] hover:bg-[#f4c430]/90 text-black">
             <CheckCircle2 className="w-3 h-3 mr-1" />
             Diverifikasi
           </Badge>
         );
       case "menunggu-verifikasi":
         return (
-          <Badge className="bg-blue-600 hover:bg-blue-700">
+          <Badge className="bg-[#f4c430]/80 hover:bg-[#f4c430]/90 text-black">
             <Clock className="w-3 h-3 mr-1" />
             Menunggu Verifikasi
           </Badge>
@@ -224,7 +224,7 @@ export default function VerifikasiDokumen() {
         );
       default:
         return (
-          <Badge className="bg-gray-600 hover:bg-gray-700">
+          <Badge className="bg-white/10 hover:bg-white/20 text-gray-200">
             <AlertTriangle className="w-3 h-3 mr-1" />
             Belum Upload
           </Badge>
@@ -319,53 +319,53 @@ export default function VerifikasiDokumen() {
 
       {/* Statistics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="bg-gradient-to-br from-blue-900/20 via-black to-gray-900 border-blue-600/20">
+        <Card className="bg-gradient-to-br from-black/50 via-black to-black/80 border-[#f4c430]/20">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm mb-1">Total Jamaah</p>
+                <p className="text-gray-200 text-sm mb-1">Total Jamaah</p>
                 <p className="text-3xl font-bold text-white">{totalJamaah}</p>
               </div>
-              <div className="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center">
-                <Users className="w-6 h-6 text-blue-500" />
+              <div className="w-12 h-12 bg-[#f4c430]/20 rounded-xl flex items-center justify-center">
+                <Users className="w-6 h-6 text-[#f4c430]" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="bg-gradient-to-br from-green-900/20 via-black to-gray-900 border-green-600/20">
+        <Card className="bg-gradient-to-br from-black/50 via-black to-black/80 border-[#f4c430]/20">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm mb-1">Dokumen Lengkap</p>
+                <p className="text-gray-200 text-sm mb-1">Dokumen Lengkap</p>
                 <p className="text-3xl font-bold text-white">{jamaahLengkap}</p>
               </div>
-              <div className="w-12 h-12 bg-green-600/20 rounded-xl flex items-center justify-center">
-                <CheckCircle2 className="w-6 h-6 text-green-500" />
+              <div className="w-12 h-12 bg-[#f4c430]/20 rounded-xl flex items-center justify-center">
+                <CheckCircle2 className="w-6 h-6 text-[#f4c430]" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="bg-gradient-to-br from-amber-900/20 via-black to-gray-900 border-amber-600/20">
+        <Card className="bg-gradient-to-br from-black/50 via-black to-black/80 border-[#f4c430]/20">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm mb-1">Menunggu Verifikasi</p>
+                <p className="text-gray-200 text-sm mb-1">Menunggu Verifikasi</p>
                 <p className="text-3xl font-bold text-white">{totalMenunggu}</p>
               </div>
-              <div className="w-12 h-12 bg-amber-600/20 rounded-xl flex items-center justify-center">
-                <Clock className="w-6 h-6 text-amber-500" />
+              <div className="w-12 h-12 bg-[#f4c430]/20 rounded-xl flex items-center justify-center">
+                <Clock className="w-6 h-6 text-[#f4c430]" />
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="bg-gradient-to-br from-red-900/20 via-black to-gray-900 border-red-600/20">
+        <Card className="bg-gradient-to-br from-black/50 via-black to-black/80 border-[#f4c430]/20">
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-400 text-sm mb-1">Ditolak</p>
+                <p className="text-gray-200 text-sm mb-1">Ditolak</p>
                 <p className="text-3xl font-bold text-white">{totalDitolak}</p>
               </div>
               <div className="w-12 h-12 bg-red-600/20 rounded-xl flex items-center justify-center">
@@ -381,7 +381,7 @@ export default function VerifikasiDokumen() {
         <CardContent className="p-6">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-200 w-5 h-5" />
               <Input
                 placeholder="Cari jamaah (nama, KTP, no. pendaftaran)..."
                 value={searchQuery}
@@ -428,16 +428,16 @@ export default function VerifikasiDokumen() {
                       <div className="flex items-center gap-3 mb-2">
                         <CardTitle className="text-white">{jamaah.namaLengkap}</CardTitle>
                         {stats.diverifikasi === stats.total ? (
-                          <Badge className="bg-green-600">Lengkap</Badge>
+                          <Badge className="bg-[#f4c430] text-black">Lengkap</Badge>
                         ) : stats.menunggu > 0 ? (
-                          <Badge className="bg-blue-600">{stats.menunggu} Menunggu</Badge>
+                          <Badge className="bg-[#f4c430]/80 text-black">{stats.menunggu} Menunggu</Badge>
                         ) : stats.ditolak > 0 ? (
                           <Badge className="bg-red-600">{stats.ditolak} Ditolak</Badge>
                         ) : (
-                          <Badge className="bg-gray-600">Belum Lengkap</Badge>
+                          <Badge className="bg-white/10 text-gray-200">Belum Lengkap</Badge>
                         )}
                       </div>
-                      <CardDescription className="flex items-center gap-4 flex-wrap text-gray-400">
+                      <CardDescription className="flex items-center gap-4 flex-wrap text-gray-200">
                         <span>No. {jamaah.noPendaftaran}</span>
                         <span>• KTP: {jamaah.noKTP}</span>
                         <span className="flex items-center gap-1">
@@ -451,7 +451,7 @@ export default function VerifikasiDokumen() {
                   {/* Progress */}
                   <div className="mt-4 space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-400">Progress Verifikasi</span>
+                        <span className="text-gray-200">Progress Verifikasi</span>
                       <span className="text-white font-medium">
                         {stats.diverifikasi}/{stats.total} • {progress.toFixed(0)}%
                       </span>
@@ -485,17 +485,17 @@ export default function VerifikasiDokumen() {
                         <CardContent className="p-3 text-center">
                           <div className="mb-2 flex justify-center">
                             {dokumen.status === "diverifikasi" ? (
-                              <CheckCircle2 className="w-8 h-8 text-green-500" />
+                              <CheckCircle2 className="w-8 h-8 text-[#f4c430]" />
                             ) : dokumen.status === "menunggu-verifikasi" ? (
-                              <Clock className="w-8 h-8 text-blue-500" />
+                              <Clock className="w-8 h-8 text-[#f4c430]" />
                             ) : dokumen.status === "ditolak" ? (
                               <XCircle className="w-8 h-8 text-red-500" />
                             ) : (
-                              <FileText className="w-8 h-8 text-gray-500" />
+                              <FileText className="w-8 h-8 text-gray-400" />
                             )}
                           </div>
                           <p className="text-xs text-white font-medium mb-1">{dokumen.jenis}</p>
-                          <p className="text-xs text-gray-400">
+                          <p className="text-xs text-gray-200">
                             {dokumen.status === "diverifikasi"
                               ? "Verified"
                               : dokumen.status === "menunggu-verifikasi"
@@ -517,7 +517,7 @@ export default function VerifikasiDokumen() {
 
       {/* Detail Dokumen Dialog */}
       <Dialog open={showDetailDialog} onOpenChange={setShowDetailDialog}>
-        <DialogContent className="bg-gradient-to-br from-gray-900 via-black to-gray-900 border-[#f4c430]/20 text-white max-w-2xl">
+        <DialogContent className="bg-gradient-to-br from-gray-900 via-black to-gray-900 border-[#f4c430]/20 text-white max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-xl">
               <FileText className="w-5 h-5 text-[#f4c430]" />

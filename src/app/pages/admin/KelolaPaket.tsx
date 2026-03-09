@@ -326,12 +326,12 @@ export default function KelolaPaket() {
   };
 
   return (
-    <div className="p-6 max-w-7xl mx-auto space-y-6">
+    <div className="p-6 max-w-7xl mx-auto space-y-6 min-h-screen bg-black text-white">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Kelola Paket Umrah</h1>
-          <p className="text-gray-600 mt-1">
+          <h1 className="text-3xl font-bold text-white">Kelola Paket Umrah</h1>
+          <p className="text-gray-200 mt-1">
             Kelola paket umrah dengan detail transportasi, akomodasi, dan itinerary
           </p>
         </div>
@@ -360,29 +360,29 @@ export default function KelolaPaket() {
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-sm text-gray-600 line-clamp-2">
+              <p className="text-sm text-gray-200 line-clamp-2">
                 {paket.deskripsi}
               </p>
 
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Harga:</span>
+                  <span className="text-gray-200">Harga:</span>
                   <span className="font-bold text-[#f4c430]">
                     Rp {parseInt(paket.harga).toLocaleString("id-ID")}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Durasi:</span>
+                  <span className="text-gray-200">Durasi:</span>
                   <span className="font-medium">{paket.durasi}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Status Detail:</span>
+                  <span className="text-gray-200">Status Detail:</span>
                   <Badge
                     variant={paket.keberangkatan.length > 0 ? "default" : "secondary"}
                     className={
                       paket.keberangkatan.length > 0
-                        ? "bg-green-100 text-green-800"
-                        : "bg-gray-100 text-gray-800"
+                        ? "bg-green-600 text-white"
+                        : "bg-white/10 text-gray-200"
                     }
                   >
                     {paket.keberangkatan.length > 0 ? "Lengkap" : "Belum Diisi"}

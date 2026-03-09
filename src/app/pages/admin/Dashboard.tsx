@@ -115,27 +115,27 @@ export default function AdminDashboard() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "disetujui":
-        return <Badge className="bg-green-100 text-green-700">Disetujui</Badge>;
+        return <Badge className="bg-green-600 text-white">Disetujui</Badge>;
       case "verifikasi":
-        return <Badge className="bg-blue-100 text-blue-700">Verifikasi</Badge>;
+        return <Badge className="bg-blue-600 text-white">Verifikasi</Badge>;
       case "pending":
-        return <Badge className="bg-amber-100 text-amber-700">Pending</Badge>;
+        return <Badge className="bg-amber-600 text-black">Pending</Badge>;
       case "ditolak":
-        return <Badge className="bg-red-100 text-red-700">Ditolak</Badge>;
+        return <Badge className="bg-red-600 text-white">Ditolak</Badge>;
       case "lunas":
-        return <Badge className="bg-emerald-100 text-emerald-700">Lunas</Badge>;
+        return <Badge className="bg-emerald-600 text-white">Lunas</Badge>;
       default:
-        return <Badge className="bg-gray-100 text-gray-700">{status}</Badge>;
+        return <Badge className="bg-white/10 text-gray-200">{status}</Badge>;
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-black text-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard Admin</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-bold text-white mb-2">Dashboard Admin</h1>
+          <p className="text-gray-200">
             Kelola paket umrah, status administrasi, dan reminder pelunasan
           </p>
         </div>
@@ -144,77 +144,77 @@ export default function AdminDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">Total Paket</CardTitle>
-              <Package className="w-4 h-4 text-emerald-600" />
+              <CardTitle className="text-sm font-medium text-white">Total Paket</CardTitle>
+              <Package className="w-4 h-4 text-[#f4c430]" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{paketUmrahList.length}</div>
-              <p className="text-xs text-gray-500 mt-1">Paket aktif</p>
+              <div className="text-2xl font-bold text-white">{paketUmrahList.length}</div>
+              <p className="text-xs text-gray-200 mt-1">Paket aktif</p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
+              <CardTitle className="text-sm font-medium text-white">
                 Total Pendaftaran
               </CardTitle>
-              <Users className="w-4 h-4 text-blue-600" />
+              <Users className="w-4 h-4 text-[#f4c430]" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{totalPendaftaran}</div>
-              <p className="text-xs text-gray-500 mt-1">Jamaah terdaftar</p>
+              <div className="text-2xl font-bold text-white">{totalPendaftaran}</div>
+              <p className="text-xs text-gray-200 mt-1">Jamaah terdaftar</p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">
+              <CardTitle className="text-sm font-medium text-white">
                 Pending Verifikasi
               </CardTitle>
-              <Clock className="w-4 h-4 text-amber-600" />
+              <Clock className="w-4 h-4 text-[#f4c430]" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{pendingVerifikasi}</div>
-              <p className="text-xs text-gray-500 mt-1">Perlu ditindaklanjuti</p>
+              <div className="text-2xl font-bold text-white">{pendingVerifikasi}</div>
+              <p className="text-xs text-gray-200 mt-1">Perlu ditindaklanjuti</p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">Belum Lunas</CardTitle>
-              <DollarSign className="w-4 h-4 text-red-600" />
+              <CardTitle className="text-sm font-medium text-white">Belum Lunas</CardTitle>
+              <DollarSign className="w-4 h-4 text-[#f4c430]" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">{belumLunas}</div>
-              <p className="text-xs text-gray-500 mt-1">Perlu reminder</p>
+              <div className="text-2xl font-bold text-white">{belumLunas}</div>
+              <p className="text-xs text-gray-200 mt-1">Perlu reminder</p>
             </CardContent>
           </Card>
         </div>
 
         {/* Quick Actions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card className="hover:shadow-lg transition-shadow cursor-pointer" onClick={() => navigate("/admin/kelola-paket")}>
+          <Card className="hover:shadow-lg transition-shadow cursor-pointer border-l-4 border-l-[#f4c430]" onClick={() => navigate("/admin/kelola-paket")}>
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
                 <Package className="w-5 h-5 text-[#f4c430]" />
                 Kelola Paket
               </CardTitle>
-              <CardDescription>
+              <CardDescription className="text-gray-200">
                 Kelola paket umrah dengan detail lengkap
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="text-3xl font-bold text-[#f4c430]">{totalPaket}</div>
-              <p className="text-sm text-gray-500 mt-1">Total paket tersedia</p>
+              <p className="text-sm text-gray-200 mt-1">Total paket tersedia</p>
             </CardContent>
           </Card>
 
           <Link to="/admin/jadwal">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-l-4 border-l-blue-500">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-l-4 border-l-[#f4c430]">
               <CardHeader>
-                <Calendar className="w-8 h-8 text-blue-600 mb-2" />
-                <CardTitle>Kelola Jadwal</CardTitle>
-                <CardDescription>
+                <Calendar className="w-8 h-8 text-[#f4c430] mb-2" />
+                <CardTitle className="text-white">Kelola Jadwal</CardTitle>
+                <CardDescription className="text-gray-200">
                   Atur jadwal keberangkatan dan itinerary perjalanan
                 </CardDescription>
               </CardHeader>
@@ -222,11 +222,11 @@ export default function AdminDashboard() {
           </Link>
 
           <Link to="/admin/verifikasi-dokumen">
-            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-l-4 border-l-purple-500">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full border-l-4 border-l-[#f4c430]">
               <CardHeader>
-                <FileCheck className="w-8 h-8 text-purple-600 mb-2" />
-                <CardTitle>Verifikasi Dokumen</CardTitle>
-                <CardDescription>
+                <FileCheck className="w-8 h-8 text-[#f4c430] mb-2" />
+                <CardTitle className="text-white">Verifikasi Dokumen</CardTitle>
+                <CardDescription className="text-gray-200">
                   Review dan verifikasi dokumen administrasi jamaah
                 </CardDescription>
               </CardHeader>
@@ -245,7 +245,7 @@ export default function AdminDashboard() {
                     <CheckCircle className="w-5 h-5 text-[#f4c430]" />
                     Kelola Status Administrasi
                   </CardTitle>
-                  <CardDescription>
+                  <CardDescription className="text-gray-200">
                     Ubah status pendaftaran: Verifikasi, Disetujui, atau Ditolak
                   </CardDescription>
                 </div>
@@ -256,21 +256,21 @@ export default function AdminDashboard() {
                 {pendaftaranData.slice(0, 5).map((daftar) => (
                   <Card
                     key={daftar.id}
-                    className="bg-gray-50 hover:bg-gray-100 transition-colors border-l-4 border-l-[#f4c430]"
+                    className="bg-black/30 hover:bg-black/40 transition-colors border-l-4 border-l-[#f4c430]"
                   >
                     <CardContent className="p-4">
                       <div className="flex items-start justify-between mb-2">
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-1">
-                            <span className="font-semibold text-gray-900">
+                            <span className="font-semibold text-white">
                               {daftar.namaCustomer}
                             </span>
                             {getStatusBadge(daftar.status)}
                           </div>
-                          <p className="text-sm text-gray-600">
+                          <p className="text-sm text-gray-200">
                             {daftar.namaPaket} • No. {daftar.noPendaftaran}
                           </p>
-                          <p className="text-xs text-gray-500 mt-1">
+                          <p className="text-xs text-gray-200 mt-1">
                             Terdaftar: {daftar.tanggalDaftar}
                           </p>
                         </div>
@@ -315,7 +315,7 @@ export default function AdminDashboard() {
                     <Send className="w-5 h-5 text-[#f4c430]" />
                     Reminder Pelunasan
                   </CardTitle>
-                  <CardDescription>
+                  <CardDescription className="text-gray-200">
                     Kirim notifikasi reminder ke jamaah yang belum lunas
                   </CardDescription>
                 </div>
@@ -332,20 +332,20 @@ export default function AdminDashboard() {
                     return (
                       <Card
                         key={daftar.id}
-                        className="bg-gray-50 hover:bg-gray-100 transition-colors border-l-4 border-l-red-500"
+                        className="bg-black/30 hover:bg-black/40 transition-colors border-l-4 border-l-red-500"
                       >
                         <CardContent className="p-4">
                           <div className="flex items-start justify-between mb-2">
                             <div className="flex-1">
                               <div className="flex items-center gap-2 mb-1">
-                                <span className="font-semibold text-gray-900">
+                                <span className="font-semibold text-white">
                                   {daftar.namaCustomer}
                                 </span>
-                                <Badge className="bg-red-100 text-red-700 text-xs">
+                                <Badge className="bg-red-600 text-white text-xs">
                                   Belum Lunas
                                 </Badge>
                               </div>
-                              <p className="text-sm text-gray-600">
+                              <p className="text-sm text-gray-200">
                                 {daftar.namaPaket} • No. {daftar.noPendaftaran}
                               </p>
                             </div>
@@ -353,25 +353,25 @@ export default function AdminDashboard() {
 
                           <div className="space-y-2 mb-3">
                             <div className="flex justify-between text-xs">
-                              <span className="text-gray-600">Progress Pembayaran</span>
-                              <span className="font-medium text-gray-900">
+                              <span className="text-gray-200">Progress Pembayaran</span>
+                              <span className="font-medium text-white">
                                 {progressPembayaran.toFixed(0)}%
                               </span>
                             </div>
-                            <div className="w-full bg-gray-200 rounded-full h-2">
+                            <div className="w-full bg-white/10 rounded-full h-2">
                               <div
-                                className="bg-gradient-to-r from-red-500 to-red-600 h-2 rounded-full"
+                                className="bg-gradient-to-r from-[#f4c430] to-[#d4a028] h-2 rounded-full"
                                 style={{ width: `${progressPembayaran}%` }}
                               />
                             </div>
                             <div className="flex justify-between text-xs">
-                              <span className="text-gray-600">Sudah Bayar:</span>
+                              <span className="text-gray-200">Sudah Bayar:</span>
                               <span className="font-medium text-green-600">
                                 Rp {daftar.sudahBayar.toLocaleString("id-ID")}
                               </span>
                             </div>
                             <div className="flex justify-between text-xs">
-                              <span className="text-gray-600">Sisa:</span>
+                              <span className="text-gray-200">Sisa:</span>
                               <span className="font-bold text-red-600">
                                 Rp {daftar.sisaPembayaran.toLocaleString("id-ID")}
                               </span>
@@ -427,10 +427,10 @@ export default function AdminDashboard() {
               <div className="space-y-4 py-4">
                 {/* Pendaftaran Info */}
                 <div className="p-3 bg-gradient-to-br from-[#f4c430]/10 to-[#ffd700]/10 rounded-lg border border-[#f4c430]/30">
-                  <h4 className="font-semibold text-gray-900 mb-1">
+                  <h4 className="font-semibold text-white mb-1">
                     {selectedPendaftaran.namaCustomer}
                   </h4>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-200">
                     {selectedPendaftaran.namaPaket} • No. {selectedPendaftaran.noPendaftaran}
                   </p>
                   <div className="mt-2">{getStatusBadge(selectedPendaftaran.status)}</div>
@@ -547,14 +547,14 @@ export default function AdminDashboard() {
               <div className="space-y-4 py-4">
                 {/* Customer Info */}
                 <div className="p-3 bg-gradient-to-br from-[#f4c430]/10 to-[#ffd700]/10 rounded-lg border border-[#f4c430]/30">
-                  <h4 className="font-semibold text-gray-900 mb-1">
+                  <h4 className="font-semibold text-white mb-1">
                     {selectedPendaftaran.namaCustomer}
                   </h4>
-                  <p className="text-sm text-gray-600 mb-2">
+                  <p className="text-sm text-gray-200 mb-2">
                     {selectedPendaftaran.namaPaket} • No. {selectedPendaftaran.noPendaftaran}
                   </p>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Sisa Pembayaran:</span>
+                    <span className="text-gray-200">Sisa Pembayaran:</span>
                     <span className="font-bold text-red-600">
                       Rp {selectedPendaftaran.sisaPembayaran.toLocaleString("id-ID")}
                     </span>
