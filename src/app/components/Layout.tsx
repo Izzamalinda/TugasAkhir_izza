@@ -84,7 +84,7 @@ export default function Layout() {
       case "pimpinan":
         return [
           { path: "/pimpinan/dashboard", label: "Dashboard", icon: Home },
-          { path: "/pimpinan/laporan", label: "Laporan", icon: BarChart3 },
+          { path: "/pimpinan/review-jamaah", label: "Review Jamaah", icon: Star },
         ];
       default:
         return [];

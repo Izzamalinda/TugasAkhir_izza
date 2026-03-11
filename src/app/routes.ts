@@ -22,6 +22,7 @@ import ManajemenJamaah from "./pages/admin/ManajemenJamaah";
 import VerifikasiDokumen from "./pages/admin/VerifikasiDokumen";
 import OperasionalDashboard from "./pages/operasional/Dashboard";
 import PimpinanDashboard from "./pages/pimpinan/Dashboard";
+import ReviewJamaah from "./pages/pimpinan/ReviewJamaah";
 import NotFound from "./pages/NotFound";
 
 export const router = createBrowserRouter([
@@ -51,6 +52,7 @@ export const router = createBrowserRouter([
       { path: "admin/verifikasi-dokumen", Component: VerifikasiDokumen },
       { path: "operasional/dashboard", Component: OperasionalDashboard },
       { path: "pimpinan/dashboard", Component: PimpinanDashboard },
+      { path: "pimpinan/review-jamaah", Component: ReviewJamaah },
       { path: "*", Component: NotFound },
     ],
   },

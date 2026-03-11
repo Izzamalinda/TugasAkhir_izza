@@ -16,7 +16,8 @@ import {
   Clock,
   CheckCircle2,
   AlertCircle,
-  XCircle
+  XCircle,
+  Download
 } from "lucide-react";
 import { useState } from "react";
 
@@ -45,6 +46,16 @@ interface DokumenStats {
   status: "Lengkap" | "Dalam Proses" | "Belum Lengkap" | "Perlu Revisi";
   dokumenLengkap: number;
   totalDokumen: number;
+}
+
+interface KeberangkatanUmrah {
+  id: string;
+  tanggal: string;
+  paket: string;
+  maskapai: string;
+  hotelMekkah: string;
+  hotelMadinah: string;
+  jumlahJamaah: number;
 }
 
 export default function PimpinanDashboard() {
@@ -159,6 +170,27 @@ export default function PimpinanDashboard() {
     }
   ];
 
+  const keberangkatanData: KeberangkatanUmrah[] = [
+  {
+    id: "KB001",
+    tanggal: "2026-05-10",
+    paket: "VIP 16 Hari",
+    maskapai: "Garuda Indonesia",
+    hotelMekkah: "Hilton Makkah",
+    hotelMadinah: "Anwar Al Madinah",
+    jumlahJamaah: 15
+  },
+  {
+    id: "KB002",
+    tanggal: "2026-06-02",
+    paket: "Premium 14 Hari",
+    maskapai: "Saudi Airlines",
+    hotelMekkah: "Pullman Zamzam",
+    hotelMadinah: "Taiba Front",
+    jumlahJamaah: 20
+  }
+  ];
+
   // Calculations
   const totalRevenue = paketPerforma.reduce((acc, p) => acc + p.totalRevenue, 0);
   const totalJamaah = paketPerforma.reduce((acc, p) => acc + p.jamaahTerdaftar, 0);
@@ -195,6 +227,28 @@ export default function PimpinanDashboard() {
         {status}
       </Badge>
     );
+  };
+
+  const downloadLaporan = (k: KeberangkatanUmrah) => {
+    const csv = [
+      ["ID Keberangkatan", k.id],
+      ["Tanggal", k.tanggal],
+      ["Paket", k.paket],
+      ["Maskapai", k.maskapai],
+      ["Hotel Mekkah", k.hotelMekkah],
+      ["Hotel Madinah", k.hotelMadinah],
+      ["Jumlah Jamaah", k.jumlahJamaah],
+    ]
+      .map((row) => row.join(","))
+      .join("\n");
+
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `laporan-keberangkatan-${k.id}.csv`;
+    link.click();
   };
 
   return (
@@ -333,6 +387,12 @@ export default function PimpinanDashboard() {
               className="data-[state=active]:bg-[#f4c430] data-[state=active]:text-black"
             >
               📄 Kelengkapan Dokumen
+            </TabsTrigger>
+            <TabsTrigger 
+              value="keberangkatan"
+              className="data-[state=active]:bg-[#f4c430] data-[state=active]:text-black"
+            >
+              ✈️ Laporan Keberangkatan
             </TabsTrigger>
           </TabsList>
 
@@ -542,6 +602,64 @@ export default function PimpinanDashboard() {
                           </td>
                           <td className="py-4 px-4 text-center">
                             {getStatusBadge(doc.status)}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+          <TabsContent value="keberangkatan">
+            <Card className="bg-gradient-to-br from-gray-900 via-black to-gray-900 border-[#f4c430]/20">
+              <CardHeader>
+                <CardTitle className="text-white">Laporan Per Keberangkatan</CardTitle>
+                <CardDescription className="text-gray-400">
+                  Download laporan lengkap setiap keberangkatan umrah
+                </CardDescription>
+              </CardHeader>
+
+              <CardContent>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b border-[#f4c430]/20">
+                        <th className="text-left py-4 px-4 text-sm font-semibold text-gray-400">ID</th>
+                        <th className="text-left py-4 px-4 text-sm font-semibold text-gray-400">Tanggal</th>
+                        <th className="text-left py-4 px-4 text-sm font-semibold text-gray-400">Paket</th>
+                        <th className="text-left py-4 px-4 text-sm font-semibold text-gray-400">Maskapai</th>
+                        <th className="text-center py-4 px-4 text-sm font-semibold text-gray-400">Jamaah</th>
+                        <th className="text-center py-4 px-4 text-sm font-semibold text-gray-400">Aksi</th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      {keberangkatanData.map((k) => (
+                        <tr
+                          key={k.id}
+                          className="border-b border-gray-800 hover:bg-[#f4c430]/5 transition-colors"
+                        >
+                          <td className="py-4 px-4 font-semibold text-white">{k.id}</td>
+
+                          <td className="py-4 px-4 text-gray-400">{k.tanggal}</td>
+
+                          <td className="py-4 px-4 text-gray-400">{k.paket}</td>
+
+                          <td className="py-4 px-4 text-gray-400">{k.maskapai}</td>
+
+                          <td className="py-4 px-4 text-center font-semibold text-white">
+                            {k.jumlahJamaah}
+                          </td>
+
+                          <td className="py-4 px-4 text-center">
+                            <Button
+                              onClick={() => downloadLaporan(k)}
+                              className="bg-[#f4c430] text-black hover:bg-[#e0b020]"
+                            >
+                              <Download className="w-4 h-4 mr-2" />
+                              Download
+                            </Button>
                           </td>
                         </tr>
                       ))}
